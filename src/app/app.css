@@ -35,6 +35,15 @@ h1 {
   cursor: pointer;
 }
 
+.eliminar button{
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -71,3 +80,4 @@ li:hover {
   color: #999;
   text-align: center;
 }
+
