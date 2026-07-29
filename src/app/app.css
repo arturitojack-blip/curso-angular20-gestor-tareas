@@ -81,3 +81,18 @@ li:hover {
   text-align: center;
 }
 
+.limpiar {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+
+.limpiar:disabled {
+  border-color: white;
+  color: gray;
+  cursor: not-allowed;
+  background:white;
+}

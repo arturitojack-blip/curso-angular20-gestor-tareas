@@ -1,7 +1,6 @@
 <main>
   <h1> {{ title }}</h1>
   <p class="contador">Pendientes : {{ store.pendientes() }}</p>
-
   <div class="nueva-tarea">
     <input 
     type="text"
@@ -26,6 +25,12 @@
     <li> No hay tareas. Agrega una !!!</li>
   }
 </ul>
+<button
+    class="limpiar"
+    (click)="store.limpiarCompletadas()"
+    [disabled]="store.completadas() === 0"
+  > 
+    Eliminar tareas completadas {{ store.completadas() }}</button>
 </main>
 
 
