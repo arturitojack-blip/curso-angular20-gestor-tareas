@@ -2,25 +2,16 @@
   <h1> {{ title }}</h1>
   <p class="contador">Pendientes : {{ store.pendientes() }}</p>
   <div class="nueva-tarea">
-    <input 
-    type="text"
-    #inputTarea
-    placeholder="Nueva Tarea"
-    (keyup.enter)="store.agregar(inputTarea.value); inputTarea.value= ''"
-    />
-    <button (click)="store.agregar(inputTarea.value); inputTarea.value=''">Agregar</button>
+    <app-task-form
+    (agregado)="store.agregar($event)"/>
   </div>
 
   <ul>
   @for (tarea of store.tareas(); track tarea.id) {
-    <li (click)="store.toggle(tarea.id)" [class.hecha] = "tarea.completada">
-      {{ tarea.titulo }}
-      @if (tarea.completada){
-        <span> Ok</span>
-      }
-      
-       <button (click)="store.eliminar(tarea.id)"; class="eliminar" $event.stopPropagation()>Eliminar</button>
-    </li>
+    <app-task-item
+     [task]="tarea" 
+     (toggle)="store.toggle($event)"
+     (removed)="store.eliminar($event)" />
   }@empty{
     <li> No hay tareas. Agrega una !!!</li>
   }
